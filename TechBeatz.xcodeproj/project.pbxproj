@@ -10,9 +10,22 @@
 		C1CA41382D39D52E0056619E /* TechBeatz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechBeatz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C1CA41722D39EF990056619E /* Exceptions for "TechBeatz" folder in "TechBeatz" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C1CA41372D39D52E0056619E /* TechBeatz */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C1CA413A2D39D52E0056619E /* TechBeatz */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C1CA41722D39EF990056619E /* Exceptions for "TechBeatz" folder in "TechBeatz" target */,
+			);
 			path = TechBeatz;
 			sourceTree = "<group>";
 		};
@@ -36,6 +49,7 @@
 				C1CA41392D39D52E0056619E /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		C1CA41392D39D52E0056619E /* Products */ = {
 			isa = PBXGroup;
@@ -255,6 +269,7 @@
 				DEVELOPMENT_TEAM = 7A447D52FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechBeatz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +299,7 @@
 				DEVELOPMENT_TEAM = 7A447D52FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechBeatz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
