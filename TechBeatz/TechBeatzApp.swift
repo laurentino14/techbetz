@@ -9,18 +9,92 @@ import SwiftUI
 
 @main
 struct TechBeatzApp: App {
+
+	@State private var applicationContext: ApplicationContext =
+		ApplicationContext()
+
+	init() {
+
+	}
 	
-	@StateObject private var applicationContext:ApplicationContext = ApplicationContext()
 	
-    var body: some Scene {
-        WindowGroup {
+	
+	var body: some Scene {
+		WindowGroup {
+			ZStack {
+				
+
+				switch applicationContext.screen {
+				
 					
-			ZStack{
-				switch applicationContext.presentContext {
-					case .Onboarding:
-						OnboardingView().environmentObject(applicationContext)
+
+				case .Onboarding:
+					OnboardingTabView()
+							.transition(
+								.move(edge: .bottom)
+							)
+
+				case .Welcome:
+						WelcomeView()
+							.transition(
+								
+									.welcomeTransition(
+										applicationContext.oldContext,
+										applicationContext.presentContext
+									)
+							)
+							
+							
+//							applicationContext.oldContext == .Onboarding && applicationContext.presentContext == .Welcome
+//							? .move(
+//								edge: .bottom
+//							) : applicationContext.oldContext == .Welcome && applicationContext.presentContext == .Onboarding ? .move(
+//								edge: .bottom
+//							) :
+//								.move(edge: .leading)
+
+				case .Sign:
+					NavigationStack {
+
+						ZStack {
+							
+							VStack {
+
+								Text("back")
+
+									.foregroundStyle(.white)
+									.onTapGesture {
+
+										applicationContext
+											.goTO(.Welcome)
+
+									}
+
+								Button {
+									applicationContext.clearDefaults()
+								} label: {
+									Text("clear").foregroundStyle(.white)
+								}
+							}
+						}.navigationTitle("abcd").background{
+							Color.blue.ignoresSafeArea(.all)
+						}
+
+					}.transition(
+						.move(edge: .trailing)
+					)
+
 				}
-			}.font(.sf).ignoresSafeArea()
-        }
-    }
+			}
+			.background {
+				Color.basePrimary.ignoresSafeArea(.all)
+			}
+			.foregroundStyle(Color.white)
+			.onAppear {
+				applicationContext.retrieveOnboardingValue()
+			}
+			.font(.sf)
+			.ignoresSafeArea()
+		}.environment(applicationContext)
+	}
 }
